@@ -65,6 +65,7 @@ public class ReaderWriterEncoding {
                 gzipOS.close();
                 fos.close();
                 fis.close();
+                newFile.delete();
             } catch (IOException e) {
                 e.printStackTrace();
             }
