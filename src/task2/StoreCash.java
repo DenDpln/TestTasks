@@ -46,4 +46,5 @@ public class StoreCash {
       public static void main(String[] args) {
         messagesCome();
     }
+
 }
