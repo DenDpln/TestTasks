@@ -1,28 +1,30 @@
 package task2;
 
-import javax.swing.text.html.parser.Entity;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by den on 19.03.2015.
  */
-public class StoreCash {
-
+public class StoreCash extends Thread{
+   public static boolean  monitor = false;
     public static void messagesCome(){
-        boolean  monitor = false;
+
         try {
+            cleanerOnTime();
             JobCHMap.putCHMap(System.currentTimeMillis(),"mess2");
+            cleanerOnTime();
             Thread.sleep(111);
             JobCHMap.putCHMap(System.currentTimeMillis(),"mess3");
+            cleanerOnTime();
             Thread.sleep(544);
             JobCHMap.putCHMap(System.currentTimeMillis(),"mess4");
+            cleanerOnTime();
             Thread.sleep(156);
             JobCHMap.putCHMap(System.currentTimeMillis(),"mess5");
+            cleanerOnTime();
             Thread.sleep(300);
             JobCHMap.putCHMap(System.currentTimeMillis(),"mess6");
+            cleanerOnTime();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -39,11 +41,13 @@ public class StoreCash {
                JobCHMap.removeCHMap(key);
             }
         }
-        System.out.println(JobCHMap.getCHMap());
-    }
 
-    public static void main(String[] args) {
+        System.out.println(JobCHMap.getCHMap());
+        monitor = false;
+        }
+
+      public static void main(String[] args) {
         messagesCome();
-        cleanerOnTime();
+
     }
 }
