@@ -7,35 +7,45 @@ import java.util.Set;
  */
 public class StoreCash {
    public static CleanerOneHour clHour = null;
-   public static boolean  monitor = false;
+  // public static boolean  monitor = false;
     public static void messagesCome(){
         clHour = new CleanerOneHour();
         clHour.start();
         try {
             //Thread.sleep(500);
-            JobCHMap.putCHMap(System.currentTimeMillis(), "mess2");
+            JobCHMap.putCHMap(System.currentTimeMillis(), "mess1");
             cleanerOnTime();
+            System.out.println(" ------------записано первое--------------------------------- ");
 
-            Thread.sleep(111);
+            Thread.sleep(25000);
+            JobCHMap.putCHMap(System.currentTimeMillis(),"mess2");
+            cleanerOnTime();
+            System.out.println(" ------------записано второе--------------------------------- ");
+
+            Thread.sleep(25000);
             JobCHMap.putCHMap(System.currentTimeMillis(),"mess3");
             cleanerOnTime();
+            System.out.println(" -------------записано третье--------------------------------- ");
 
-            Thread.sleep(544);
+            Thread.sleep(15000);
             JobCHMap.putCHMap(System.currentTimeMillis(),"mess4");
             cleanerOnTime();
+            System.out.println(" --------------записано четвёртое--------------------------------- ");
 
-            Thread.sleep(156);
+            Thread.sleep(10000);
             JobCHMap.putCHMap(System.currentTimeMillis(),"mess5");
             cleanerOnTime();
+            System.out.println(" ---------------записано пятое--------------------------------- ");
 
-            Thread.sleep(300);
+            Thread.sleep(60000);
             JobCHMap.putCHMap(System.currentTimeMillis(),"mess6");
             cleanerOnTime();
+            System.out.println(" ---------------записано шестое--------------------------------- ");
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        monitor = true;
+      //  monitor = true;
     }
     public static void cleanerOnTime(){
         clHour.interrupt();
@@ -44,16 +54,19 @@ public class StoreCash {
         Set<Long> keyset=JobCHMap.getCHMap().keySet();
         for ( Long key : keyset){
            // System.out.println(key);
-            if (key < timeNow-1000){
+            if (key < timeNow-60000){
+                System.out.println("протухло удалено - " + JobCHMap.get(key));
                JobCHMap.removeCHMap(key);
+            } else {
+                System.out.println("не протухло-  " + JobCHMap.get(key));
             }
         }
-        System.out.println(JobCHMap.getCHMap());
-        monitor = false;
+        System.out.println("всего сообщений +   " + "   " + "size= " + JobCHMap.sizeCHMap()+ "  " + JobCHMap.getCHMap());
+     //   monitor = false;
         if (clHour.isInterrupted()){
-        clHour = new CleanerOneHour();
-        clHour.start();
-        System.out.println("zapusk ");}
+            clHour = new CleanerOneHour();
+            System.out.println("перезапуск ожидания ");
+            clHour.start();}
         }
       public static void main(String[] args) {
         messagesCome();

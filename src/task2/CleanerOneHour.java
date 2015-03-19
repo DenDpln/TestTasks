@@ -9,18 +9,19 @@ public class CleanerOneHour extends Thread{
 
     @Override
     public void run() {
-       // while (!Thread.currentThread().isInterrupted()) {
+        while (true) {
             try {
-                System.out.printf("con nachalo ");
-                Thread.sleep(10000);
-                System.out.println("zapusk cleaner");
-
+                System.out.printf("ждём минуту " + '\n');
+                Thread.sleep(60000);
+                System.out.println("минута прошла");
+                System.out.println("всего сообщений    " + "   " + "size= " + JobCHMap.sizeCHMap()+ "  " +JobCHMap.getCHMap());
+                StoreCash.cleanerOnTime();
             } catch (InterruptedException ex) {
-                System.out.printf(" ostanov ");
+                System.out.printf("   останов --------------------" + '\n');
                 Thread.currentThread().run();
 
             }
         }
     }
-//}
+}
 

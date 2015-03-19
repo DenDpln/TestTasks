@@ -22,5 +22,9 @@ public class JobCHMap {
         CHMap cashMap = CHMap.greatCHMap();
         return cashMap.size();
     }
+    public static String get(Long l){
+        CHMap cashMap = CHMap.greatCHMap();
+        return cashMap.get(l);
+    }
 
 }

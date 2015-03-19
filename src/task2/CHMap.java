@@ -18,8 +18,8 @@ public class CHMap {
         return instance;
     }
     public String put(Long timeNow, String messageNew){return cashCHMap.put(timeNow, messageNew);}
-    public String remove(Long messageNew){return cashCHMap.remove(messageNew);}
-    public String get(String messageNew){return cashCHMap.get(messageNew);}
+    public String remove(Long timeNow){return cashCHMap.remove(timeNow);}
+    public String get(Long timeNow){return cashCHMap.get(timeNow);}
     public Integer size(){return cashCHMap.size();}
     public ConcurrentHashMap<Long,String> getCHMap(){return cashCHMap;}
 
