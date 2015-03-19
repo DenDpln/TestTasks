@@ -1,5 +1,7 @@
 package task2;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * Created by den on 19.03.2015.
  */
@@ -12,9 +14,13 @@ public class JobCHMap {
         CHMap cashMap = CHMap.greatCHMap();
         cashMap.remove(e);
     }
-    public static void  getCHMap(){
+    public static ConcurrentHashMap getCHMap(){
         CHMap cashMap = CHMap.greatCHMap();
-        cashMap.getCHMap();
+       return cashMap.getCHMap();
+    }
+    public static Integer sizeCHMap(){
+        CHMap cashMap = CHMap.greatCHMap();
+        return cashMap.size();
     }
 
 }

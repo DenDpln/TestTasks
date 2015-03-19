@@ -19,6 +19,9 @@ public class CHMap {
     }
     public Long put(String messageNew, Long timeNow){return cashCHMap.put(messageNew, timeNow);}
     public Long remove(String messageNew){return cashCHMap.remove(messageNew);}
+    public Long get(String messageNew){return cashCHMap.get(messageNew);}
+    public Integer size(){return cashCHMap.size();}
     public ConcurrentHashMap<String,Long> getCHMap(){return cashCHMap;}
+
 }
 
