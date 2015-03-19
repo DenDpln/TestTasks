@@ -8,7 +8,7 @@ import java.util.zip.GZIPOutputStream;
  */
 public class ReaderWriterEncoding {
     public static void main(String[] args) {
-        String fileOrigPath = "C:\\test\\text12511.txt";
+        String fileOrigPath = "C:\\test\\text1251.txt";
         String fileEndPath = "C:\\test\\textUtf8.txt";
         String fileGZIP = "C:\\test\\textUtf8.txt.gz";
         File file = new File(fileOrigPath);
