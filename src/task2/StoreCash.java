@@ -30,14 +30,20 @@ public class StoreCash {
 
     }
     public static void cleanerOnTime(){
+        System.out.println(JobCHMap.getCHMap());
       long timeNow = System.currentTimeMillis();
         Set<Long> keyset=JobCHMap.getCHMap().keySet();
         for ( Long key : keyset){
             System.out.println(key);
+            if (key<timeNow-1000){
+               JobCHMap.removeCHMap(key);
+            }
         }
+        System.out.println(JobCHMap.getCHMap());
     }
 
     public static void main(String[] args) {
         messagesCome();
+        cleanerOnTime();
     }
 }

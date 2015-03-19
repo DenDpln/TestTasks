@@ -10,7 +10,7 @@ public class JobCHMap {
         CHMap cashMap = CHMap.greatCHMap();
         cashMap.put(l,s);
     }
-    public static void removeCHMap(String e){
+    public static void removeCHMap(Long e){
         CHMap cashMap = CHMap.greatCHMap();
         cashMap.remove(e);
     }
