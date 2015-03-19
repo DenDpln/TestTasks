@@ -5,7 +5,7 @@ import java.util.Set;
 /**
  * Created by den on 19.03.2015.
  */
-public class StoreCash extends Thread{
+public class StoreCash {
    public static boolean  monitor = false;
     public static void messagesCome(){
 
@@ -29,7 +29,6 @@ public class StoreCash extends Thread{
             e.printStackTrace();
         }
         monitor = true;
-
     }
     public static void cleanerOnTime(){
         System.out.println(JobCHMap.getCHMap());
@@ -37,17 +36,14 @@ public class StoreCash extends Thread{
         Set<Long> keyset=JobCHMap.getCHMap().keySet();
         for ( Long key : keyset){
             System.out.println(key);
-            if (key<timeNow-1000){
+            if (key < timeNow-1000){
                JobCHMap.removeCHMap(key);
             }
         }
-
         System.out.println(JobCHMap.getCHMap());
         monitor = false;
         }
-
       public static void main(String[] args) {
         messagesCome();
-
     }
 }
