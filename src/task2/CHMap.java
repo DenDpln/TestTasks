@@ -25,5 +25,9 @@ public class CHMap {
     public Integer size(){return cashCHMap.size();}
     public TreeMap<Long,String> getCHMap(){return cashCHMap;}
     public Long firstKey(){return cashCHMap.firstKey();}
+    public String removeFirst(){
+        return cashCHMap.remove(cashCHMap.firstKey());
+    }
+
 }
 

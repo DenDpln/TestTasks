@@ -12,15 +12,21 @@ public class CleanerOneHour extends Thread{
     public void run() {
         while (true) {
             try {
+                long firstKeyValue;
+                if (JobCHMap.getCHMap().isEmpty()){
+                    firstKeyValue=0;
+                }else {
+                    firstKeyValue = JobCHMap.getCHMap().firstKey();
+                }
+                long witingTime = (60000 - (System.currentTimeMillis()-firstKeyValue));
+                if (witingTime <= 0){witingTime = 60000;}
                 nowTime = new Date();
-                System.out.printf("время ожидания -  " + (60000 - (System.currentTimeMillis()-JobCHMap.getCHMap().firstKey())) + "   начиная с -   " + nowTime.getMinutes() + ":" + nowTime.getSeconds() + '\n');
-                Thread.sleep(60000 - (System.currentTimeMillis()-JobCHMap.getCHMap().firstKey()));
-                //System.out.println("минута прошла" + "  " + nowTime.getMinutes() + ":" + nowTime.getSeconds());
-                StoreCash.cleanerOnTime();
+                System.out.printf("время ожидания -  " + witingTime + "   начиная с -   " + nowTime.getMinutes() + ":" + nowTime.getSeconds() + '\n');
+                Thread.sleep(witingTime);
             } catch (InterruptedException ex) {
                 nowTime = new Date();
-               // System.out.printf("   останов --------------------" + "  " + nowTime.getMinutes() + ":" + nowTime.getSeconds() + '\n');
-
+            } finally {
+                StoreCash.cleanerOnTime();
             }
         }
     }

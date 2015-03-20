@@ -31,5 +31,9 @@ public class JobCHMap {
         CHMap cashMap = new CHMap();
         return cashMap.firstKey();
     }
+    public static void removeFirst(){
+        CHMap cashMap = CHMap.greatCHMap();
+        cashMap.removeFirst();
+    }
 
 }
