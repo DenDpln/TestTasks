@@ -1,5 +1,6 @@
 package task2;
 
+import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -14,7 +15,7 @@ public class JobCHMap {
         CHMap cashMap = CHMap.greatCHMap();
         cashMap.remove(e);
     }
-    public static ConcurrentHashMap getCHMap(){
+    public static TreeMap<Long, String> getCHMap(){
         CHMap cashMap = CHMap.greatCHMap();
        return cashMap.getCHMap();
     }
@@ -25,6 +26,10 @@ public class JobCHMap {
     public static String get(Long l){
         CHMap cashMap = CHMap.greatCHMap();
         return cashMap.get(l);
+    }
+    public static Long firstKey(){
+        CHMap cashMap = new CHMap();
+        return cashMap.firstKey();
     }
 
 }
