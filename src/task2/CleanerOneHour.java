@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.Date;
 
 /**
-* Created by den on 19.03.2015.
-*/
+ * Created by den on 19.03.2015.
+ */
 public class CleanerOneHour extends Thread{
     Date nowTime = new Date();
     @Override
@@ -31,4 +31,3 @@ public class CleanerOneHour extends Thread{
         }
     }
 }
-

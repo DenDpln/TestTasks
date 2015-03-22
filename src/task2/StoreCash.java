@@ -56,7 +56,7 @@ public class StoreCash {
             clHour.run();
         }
     }
-      public static void main(String[] args) {
+    public static void main(String[] args) {
         messagesCome();
     }
 
