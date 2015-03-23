@@ -23,8 +23,7 @@ public class CHMap {
     protected Integer size(){return cashCHMap.size();}
     protected TreeMap<Long,String> getCHMap(){return cashCHMap;}
     protected Long firstKey(){return cashCHMap.firstKey();}
-    protected String removeFirst(){
-        return cashCHMap.remove(cashCHMap.firstKey());
+    protected String removeFirst(){return cashCHMap.remove(cashCHMap.firstKey());
     }
 
 }

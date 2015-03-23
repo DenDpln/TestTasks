@@ -17,7 +17,5 @@ public class CashTimeToLiveAttribute {
         }
         return instance;
     }
-    protected void putCashTTLA(Long ttl, String attr){
-        cashTTLA.put(ttl,attr);
-    }
+    protected void putCashTTLA(Long ttl, String attr){cashTTLA.put(ttl,attr);}
 }
