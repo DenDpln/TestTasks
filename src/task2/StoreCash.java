@@ -3,7 +3,7 @@ package task2;
 import java.util.*;
 
 /**
- * Created by den on 19.03.2015.
+ *
  */
 public class StoreCash {
     public static CleanerOneHour clHour = new CleanerOneHour();
