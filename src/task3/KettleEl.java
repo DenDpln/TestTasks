@@ -14,7 +14,7 @@ package task3;
 public class KettleEl implements Kettle{
     boolean canTurnOn = false;
     boolean turnOn = false;
-    boolean batton = false;
+    boolean button = false;
     @Override
     public boolean pourWater(int waterLevel) {
         if (waterLevel>0) {
@@ -45,6 +45,7 @@ public class KettleEl implements Kettle{
     public boolean boiled(int boilingPoint) {
         if (boilingPoint >= 100 && turnOn()){
             return true;
+           // System.out.println("Был включен и Закипел");
         }
         return false;
     }
@@ -55,7 +56,7 @@ public class KettleEl implements Kettle{
     }
 
     public boolean buttonIsPressed() {
-        batton = true;
-        return batton;
+        button = false;
+        return button;
     }
 }

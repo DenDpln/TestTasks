@@ -9,8 +9,9 @@ public class KettlEl_Test extends TestCase {
     public static void testKettle(){
         KettleEl kettleEl = new KettleEl();
         kettleEl.autoTurnOff(100);
-        kettleEl.pourWater(0);
-        kettleEl.boiled(90);
+        kettleEl.pourWater(1);
+        kettleEl.boiled(110);
+        kettleEl.turnOn();
     }
 
     public static void main(String[] args) {
