@@ -25,7 +25,7 @@ public class JobMap {
         CashAttributeMessages cashAttributeMessages = new CashAttributeMessages();
         return cashAttributeMessages.getAM();
     }
-    protected ConcurrentHashMap<String, Long> getTTLAttr(String mess, Long ttl){
+    protected ConcurrentHashMap<String, Long> getTTLMess(){
         CashTimeToLiveAttribute cashTimeToLiveAttribute = new CashTimeToLiveAttribute();
         return cashTimeToLiveAttribute.getTTLAttr();
     }
