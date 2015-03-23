@@ -1,8 +1,6 @@
 package task2;
 
 import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by den on 19.03.2015.
