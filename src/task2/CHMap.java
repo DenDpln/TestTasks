@@ -7,8 +7,7 @@ import java.util.TreeMap;
  */
 public class CHMap {
     TreeMap<Long,String> cashCHMap;
-    protected CHMap(){
-        cashCHMap = new TreeMap<Long,String>();
+    protected CHMap(){cashCHMap = new TreeMap<Long,String>();
     }
     private static CHMap instance;
     protected static CHMap greatCHMap() {

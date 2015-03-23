@@ -6,8 +6,8 @@ import java.util.*;
  *
  */
 public class StoreCash {
-    public static CleanerOneHour clHour = new CleanerOneHour();
-    public static void messagesCome(){
+    private static CleanerOneHour clHour = new CleanerOneHour();
+    private static void messagesCome(){
         Date nowTime = null;
         nowTime = new Date();
         System.out.println("начало  "  + nowTime.getMinutes() + ":" + nowTime.getSeconds());
@@ -46,7 +46,7 @@ public class StoreCash {
             e.printStackTrace();
         }
     }
-    public static void cleanerOnTime(){
+    protected static void  cleanerOnTime(){
 
         Date nowTime = new Date();
         long timeNow = System.currentTimeMillis();

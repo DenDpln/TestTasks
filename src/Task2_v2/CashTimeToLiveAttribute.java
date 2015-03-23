@@ -6,9 +6,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * Created by den on 23.03.2015.
  */
 public class CashTimeToLiveAttribute {
-    ConcurrentHashMap<Long,String> cashTTLA;
+    ConcurrentHashMap<String,Long> cashTTLA;
     protected CashTimeToLiveAttribute(){
-        cashTTLA = new ConcurrentHashMap<Long,String>();
+        cashTTLA = new ConcurrentHashMap<String,Long>();
     }
     private static CashTimeToLiveAttribute instance;
     public static CashTimeToLiveAttribute greatCshTTLA() {
@@ -17,5 +17,6 @@ public class CashTimeToLiveAttribute {
         }
         return instance;
     }
-    protected void putCashTTLA(Long ttl, String attr){cashTTLA.put(ttl,attr);}
+    protected void putCashTTLA(String mess, Long ttl){cashTTLA.put(mess, ttl);}
+    protected ConcurrentHashMap<String,Long> getTTLAttr(){return cashTTLA;}
 }

@@ -17,6 +17,7 @@ public class CashAttributeMessages {
         }
         return instance;
     }
-    protected void putCashAM(String attr, String mess){cashAM.put(attr,mess);}
+    protected void putCashAM(String mess, String attr){cashAM.put(mess,attr);}
+    protected ConcurrentHashMap<String,String> getAM(){return cashAM;}
 
 }
