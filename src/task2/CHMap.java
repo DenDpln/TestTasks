@@ -13,19 +13,19 @@ public class CHMap {
         cashCHMap = new TreeMap<Long,String>();
     }
     private static CHMap instance;
-    public static CHMap greatCHMap() {
+    protected static CHMap greatCHMap() {
         if (instance == null) {
             instance = new CHMap();
         }
         return instance;
     }
-    public String put(Long timeNow, String messageNew){return cashCHMap.put(timeNow, messageNew);}
-    public String remove(Long timeNow){return cashCHMap.remove(timeNow);}
-    public String get(Long timeNow){return cashCHMap.get(timeNow);}
-    public Integer size(){return cashCHMap.size();}
-    public TreeMap<Long,String> getCHMap(){return cashCHMap;}
-    public Long firstKey(){return cashCHMap.firstKey();}
-    public String removeFirst(){
+    protected String put(Long timeNow, String messageNew){return cashCHMap.put(timeNow, messageNew);}
+    protected String remove(Long timeNow){return cashCHMap.remove(timeNow);}
+    protected String get(Long timeNow){return cashCHMap.get(timeNow);}
+    protected Integer size(){return cashCHMap.size();}
+    protected TreeMap<Long,String> getCHMap(){return cashCHMap;}
+    protected Long firstKey(){return cashCHMap.firstKey();}
+    protected String removeFirst(){
         return cashCHMap.remove(cashCHMap.firstKey());
     }
 
