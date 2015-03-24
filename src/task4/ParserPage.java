@@ -9,7 +9,6 @@ import org.jsoup.select.Elements;
 
 public class ParserPage {
     private static final String indexFilePathFileName = "C:\\test\\webPage\\" + "index.html";
-    private static final String indexFilePath = "C:\\test\\webPage\\";
     private static final String folderSave = "C:\\test\\webPage\\";
     private static final String urlPage = "https://www.wikipedia.org/";
     private static final String domenName = ".org";
@@ -41,7 +40,9 @@ public class ParserPage {
         String dirTree = src.substring(indexTreeFolderFirst,indexBegin +1);
         System.out.println(dirTree);
         System.out.println(nameImg);
-        File f = new File(folderSave+dirTree);
-        f.mkdirs();
+        File folderTree = new File(folderSave+dirTree);
+        if (folderTree.mkdirs()){
+            System.out.println("Директории для images созданы");
+        }
     }
 }
