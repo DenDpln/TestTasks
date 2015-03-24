@@ -11,6 +11,7 @@ package task3;
     public void autoTurnOff();
     public boolean buttonIsPressed(boolean button);
     public boolean Gaz();
+    public void StartEnd(boolean button, boolean isPressed, int boilingPoint,int waterLevel);
 }
 public class KettleEl implements Kettle{
 
@@ -96,7 +97,7 @@ public class KettleEl implements Kettle{
     * не используемый метод
      */
     public boolean Gaz() {
-        System.out.println("Чайник электрический, газ не нужен.");
+        System.out.println("Чайник загорелся на газовой плите, Вызывайте пожарных");
         return false;
     }
     /*
