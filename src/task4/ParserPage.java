@@ -8,13 +8,15 @@ import org.jsoup.select.Elements;
 
 
 public class ParserPage {
-    private static final String indexFilePath = "C:\\test\\webPage\\index.html";
+    private static final String indexFilePathFileName = "C:\\test\\webPage\\" + "index.html";
+    private static final String indexFilePath = "C:\\test\\webPage\\";
     private static final String folderSave = "C:\\test\\webPage\\";
     private static final String urlPage = "https://www.wikipedia.org/";
     private static final String domenName = ".org";
+    private static final File file = new File(indexFilePathFileName);
     public static void main(String args[]) throws IOException{
 
-        File file = new File(indexFilePath);
+
         OutputStreamWriter osr = new OutputStreamWriter(new FileOutputStream(file),"cp1251");
         Document doc = Jsoup.connect(urlPage).get();
         String textHtml = doc.html();
@@ -32,8 +34,14 @@ public class ParserPage {
     private static void getImg(String src){
         int indexBegin = src.lastIndexOf("/");
         int indexTreeFolderFirst = src.lastIndexOf(domenName)+ domenName.length();
-        System.out.println(indexBegin);
-        System.out.println(indexTreeFolderFirst );
-        System.out.println(src.substring(indexTreeFolderFirst,indexBegin +1));
+        String nameImg = src.substring(indexBegin +1,src.length());
+       // System.out.println(indexBegin);
+       // System.out.println(indexTreeFolderFirst );
+
+        String dirTree = src.substring(indexTreeFolderFirst,indexBegin +1);
+        System.out.println(dirTree);
+        System.out.println(nameImg);
+        File f = new File(folderSave+dirTree);
+        f.mkdirs();
     }
 }
