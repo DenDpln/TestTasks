@@ -24,11 +24,6 @@ public class ParserPage {
     public static void main(String args[]) throws IOException {
         Document doc = saveIndexFile(urlPage, file);
         Elements img = doc.getElementsByTag("img");
-        Elements css = doc.select("rel");
-        for (org.jsoup.nodes.Element el : css){
-            String stylesheet = el.attr("href");
-            getCSS(stylesheet);
-        }
         for (org.jsoup.nodes.Element el : img) {
             String src = el.absUrl("src");
             getImg(src);
@@ -104,9 +99,5 @@ public class ParserPage {
     in.close();
     changeLineInFile("//" + findPathImg(src), folderSave + findPathImg(src));
     }
-
-    private static void getCSS(String stylesheet){
-        System.out.println(stylesheet);
-
-    }
+    //TODO стянуть CSS
 }
