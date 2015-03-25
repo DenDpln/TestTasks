@@ -1,5 +1,6 @@
 package task2;
 
+import java.util.Collection;
 import java.util.TreeMap;
 
 /**
@@ -17,6 +18,10 @@ public class JobCHMap {
     protected static void removeFirst(){
         CHMap cashMap = CHMap.greatCHMap();
         cashMap.removeFirst();
+    }
+    protected static Collection<String> getValue(){
+        CHMap cashMap = CHMap.greatCHMap();
+        return cashMap.getValues();
     }
 
 }

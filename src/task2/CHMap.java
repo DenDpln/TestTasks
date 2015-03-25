@@ -1,5 +1,6 @@
 package task2;
 
+import java.util.Collection;
 import java.util.TreeMap;
 
 /**
@@ -18,7 +19,8 @@ public class CHMap {
     }
     protected String put(Long timeNow, String messageNew){return cashCHMap.put(timeNow, messageNew);}
     protected TreeMap<Long,String> getCHMap(){return cashCHMap;}
-    protected String removeFirst(){return cashCHMap.remove(cashCHMap.firstKey());
-    }
+    protected String removeFirst(){return cashCHMap.remove(cashCHMap.firstKey());}
+    protected Collection<String> getValues(){return cashCHMap.values();}
+
 
 }

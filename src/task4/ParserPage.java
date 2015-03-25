@@ -7,11 +7,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 /**
- *  метод: Входной параметр – строка с URL страницы.
- *  Страница статическая, без яваскрипта, только html+css.
- *  Необходимо сохранить эту страницу в файл, сохранить все стили и изображения,
- *  встречающиеся на странице с сохранением структуры файлов и путей
- */
+    *  метод: Входной параметр – строка с URL страницы.
+    *  Страница статическая, без яваскрипта, только html+css.
+    *  Необходимо сохранить эту страницу в файл, сохранить все стили и изображения,
+    *  встречающиеся на странице с сохранением структуры файлов и путей
+     */
 
 public class ParserPage {
     private static final String folderSave = "C:/test/webPage/";
@@ -24,7 +24,7 @@ public class ParserPage {
         for (org.jsoup.nodes.Element el : img){
             String src = el.absUrl("src");
             getImg(src);
-            // String newPath = findPathImg(src).replace("/", "\\");
+           // String newPath = findPathImg(src).replace("/", "\\");
             System.out.println("полный путь хранения на диске-  " + folderSave + findPathImg(src) + findNameImg(src));
             changeLineInFile("//" + findPathImg(src), folderSave + findPathImg(src) + findNameImg(src));
         }
@@ -38,8 +38,8 @@ public class ParserPage {
         int indexBegin = src.lastIndexOf("/");
         int indexTreeFolderFirst = src.lastIndexOf("//");
         String dirTree = src.substring(indexTreeFolderFirst+ 2,indexBegin + 1);
-        // System.out.println(dirTree + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        // String dirTree = dirTreeOld.replace("/","\\");
+       // System.out.println(dirTree + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+       // String dirTree = dirTreeOld.replace("/","\\");
         return dirTree;
     }
     private static Document saveIndexFile(String urlPage, File file) throws IOException {
@@ -87,20 +87,20 @@ public class ParserPage {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        //  String[] winSymbol = {":","*","?","<",">","|","\""};
+      //  String[] winSymbol = {":","*","?","<",">","|","\""};
         InputStream in = url.openStream();
         //TODO проверка остальных знаков, которые не могут быть в имени дирректории или файла
-        // for (String aWinSymbol : winSymbol) {
-        if (!dirTree.contains(":") && !nameImg.contains("?")) {
-            // System.out.println(aWinSymbol);
-            OutputStream out = new BufferedOutputStream(new FileOutputStream(folderSave + dirTree +"/" +nameImg));
-            for (int b; (b = in.read()) != -1; ) {
-                out.write(b);
-            }
-            out.close();
+       // for (String aWinSymbol : winSymbol) {
+            if (!dirTree.contains(":") && !nameImg.contains("?")) {
+               // System.out.println(aWinSymbol);
+                OutputStream out = new BufferedOutputStream(new FileOutputStream(folderSave + dirTree +"/" +nameImg));
+                for (int b; (b = in.read()) != -1; ) {
+                    out.write(b);
+                }
+                out.close();
 
-        }
-        //  }
+            }
+      //  }
         in.close();
 
     }
