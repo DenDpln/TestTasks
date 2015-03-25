@@ -18,8 +18,8 @@ public class CleanerOneHour extends Thread{
                 }else {
                     firstKeyValue = JobCHMap.getCHMap().firstKey();
                 }
-                long witingTime = (60000 - (System.currentTimeMillis()-firstKeyValue));
-                if (witingTime <= 0){witingTime = 60000;}
+                long witingTime = (StoreCash.ttl - (System.currentTimeMillis()-firstKeyValue));
+                if (witingTime <= 0){witingTime = StoreCash.ttl;}
                 nowTime = new Date();
                 System.out.printf("время ожидания -  " + witingTime + "   начиная с -   " + nowTime.getMinutes() + ":" + nowTime.getSeconds() + '\n');
                 Thread.sleep(witingTime);

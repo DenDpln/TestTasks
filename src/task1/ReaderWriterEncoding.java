@@ -4,7 +4,9 @@ import java.io.*;
 import java.util.zip.GZIPOutputStream;
 
 /**
- * Created by den on 17.03.2015.
+ *  алгоритм (программу на языке Java), который читает данные из файла с
+ *  кодировкой Cp1251 и переписывает в новый файл с кодировкой UTF-8, при этом,
+ *  если размер файла превышает 10 Mb, сжимает результат в GZIP-архив
  */
 public class ReaderWriterEncoding {
     public static void main(String[] args) {

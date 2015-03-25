@@ -1,15 +1,18 @@
 package task4;
-
 import java.io.*;
-import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+    /**
+    *  метод: Входной параметр – строка с URL страницы.
+    *  Страница статическая, без яваскрипта, только html+css.
+    *  Необходимо сохранить эту страницу в файл, сохранить все стили и изображения,
+    *  встречающиеся на странице с сохранением структуры файлов и путей
+     */
 
 public class ParserPage {
     private static final String indexFilePathFileName = "C:/test/webPage/" + "index.html";
@@ -22,7 +25,7 @@ public class ParserPage {
         OutputStreamWriter osr = new OutputStreamWriter(new FileOutputStream(file));
         Document doc = Jsoup.connect(urlPage).get();
         String textHtml = doc.html();
-        osr.write(doc.html());
+        osr.write(doc.html());   //пишем на диск
         osr.close();
         Elements img = doc.getElementsByTag("img");
         for (org.jsoup.nodes.Element el : img){
@@ -30,6 +33,8 @@ public class ParserPage {
            getImg(src);
         }
     }
+
+
     private static void getImg(String src) throws IOException {
         int indexBegin = src.lastIndexOf("/");
         int indexTreeFolderFirst = src.lastIndexOf("//");

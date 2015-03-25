@@ -1,28 +1,37 @@
 package task3;
 
 /**
- * Чайник
+ * интерфейс электрического чайника с юнит-тестами
  */
- interface Kettle {
+interface Kettle {
     public boolean pourWater(int waterLevel);
-    public boolean turnOn(boolean button,boolean canTurnOn);
-    public void turnOff();
-    public boolean boiled(int boilingPoint);
-    public void autoTurnOff();
-    public boolean buttonIsPressed(boolean button);
-    public boolean Gaz();
-    public void StartEnd(boolean button, boolean isPressed, int boilingPoint,int waterLevel);
-}
-public class KettleEl implements Kettle{
 
-/*
- * проверка уровня воды
- */
+    public boolean turnOn(boolean button, boolean canTurnOn);
+
+    public void turnOff();
+
+    public boolean boiled(int boilingPoint);
+
+    public void autoTurnOff();
+
+    public boolean buttonIsPressed(boolean button);
+
+    public boolean Gaz();
+
+    public void StartEnd(boolean button, boolean isPressed, int boilingPoint, int waterLevel);
+}
+
+public class KettleEl implements Kettle {
+
+    /**
+     * проверка уровня воды
+     */
     public boolean pourWater(int waterLevel) {
-        if (waterLevel>0&&waterLevel<2) {
+        if (waterLevel > 0 && waterLevel < 2) {
             System.out.println("Вода есть можно включать");
-            return true;}else
-        {if (waterLevel>2){
+            return true;
+        } else {
+            if (waterLevel > 2) {
                 System.out.println("Воды слишком много, сработала защита");
                 turnOff();
             }
@@ -30,35 +39,39 @@ public class KettleEl implements Kettle{
         return true;
     }
 
- /*
- *   можно ли включить чайник, уровень воды больше 0 и нажата кнопка button = true
- */
+    /**
+     * можно ли включить чайник, уровень воды больше 0 и нажата кнопка button = true
+     */
 
-    public boolean turnOn(boolean button,boolean canTurnOn) {
-        if (buttonIsPressed(button)&&canTurnOn)
-        {System.out.println("Чайник включён, вода есть");
-            return true;}else {
-            if (!buttonIsPressed(button)){
+    public boolean turnOn(boolean button, boolean canTurnOn) {
+        if (buttonIsPressed(button) && canTurnOn) {
+            System.out.println("Чайник включён, вода есть");
+            return true;
+        } else {
+            if (!buttonIsPressed(button)) {
                 System.out.println("Не нажата кнопка");
                 return false;
             }
-            if (!canTurnOn){
-                System.out.println("Нет воды");}
-                return false;
+            if (!canTurnOn) {
+                System.out.println("Нет воды");
+            }
+            return false;
         }
     }
-     /*
-      *  чайник не закипел но нажата кнопка во время работы, принудительное выключение
-      */
+
+    /**
+     * чайник не закипел но нажата кнопка во время работы, принудительное выключение
+     */
     public void turnOff() {
         System.out.println("Принудительное выключение.");
         System.exit(0);
     }
-    /*
-    * если температура воды меньше 100 , доводим до кипения
-    */
+
+    /**
+     * если температура воды меньше 100 , доводим до кипения
+     */
     public boolean boiled(int boilingPoint) {
-        if (boilingPoint < 100 ){
+        if (boilingPoint < 100) {
             System.out.println("Температура меньше 100, греем дальше");
             boilingPoint = boilingPoint + 100;
             try {
@@ -72,8 +85,8 @@ public class KettleEl implements Kettle{
         return false;
     }
 
-    /*
-    * если температура воды >= 100 автовыключение
+    /**
+     * если температура воды >= 100 автовыключение
      */
 
     public void autoTurnOff() {
@@ -81,26 +94,28 @@ public class KettleEl implements Kettle{
         System.exit(0);
     }
 
-    /*
-    * проверка нажата ли кнопка включения
+    /**
+     * проверка нажата ли кнопка включения
      */
     public boolean buttonIsPressed(boolean button) {
-       if (button){System.out.println("Кнопака включения нажата");
-        return true;}else {
-           System.out.println("Кнопку включения никто не нажал");
-           System.exit(0);
-        return false;
-       }
+        if (button) {
+            System.out.println("Кнопака включения нажата");
+            return true;
+        } else {
+            System.out.println("Кнопку включения никто не нажал");
+            System.exit(0);
+            return false;
+        }
     }
 
-    /*
-    * не используемый метод
+    /**
+     * не используемый метод
      */
     public boolean Gaz() {
         System.out.println("Чайник загорелся на газовой плите, Вызывайте пожарных");
         return false;
     }
-    /*
+    /**
      * boolean button - кнопка включения
      * boolean isPressed - произвольное нажатие кнопки когда чайник включён
      * int boilingPoint - температура воды в чайнике, при 100 кипит
@@ -108,13 +123,17 @@ public class KettleEl implements Kettle{
      *
      */
 
-    public void StartEnd(boolean button, boolean isPressed, int boilingPoint,int waterLevel){
-        if (turnOn(button, pourWater(waterLevel))){
-            if (isPressed){turnOff();}
-            if (boilingPoint>=100){
+    public void StartEnd(boolean button, boolean isPressed, int boilingPoint, int waterLevel) {
+        if (turnOn(button, pourWater(waterLevel))) {
+            if (isPressed) {
+                turnOff();
+            }
+            if (boilingPoint >= 100) {
                 autoTurnOff();
             } else {
-                if (boiled(boilingPoint)){boiled(boilingPoint);}
+                if (boiled(boilingPoint)) {
+                    boiled(boilingPoint);
+                }
             }
         }
 
